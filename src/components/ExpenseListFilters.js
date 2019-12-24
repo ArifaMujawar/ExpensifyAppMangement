@@ -36,6 +36,7 @@ class ExpenseListFilters extends React.Component{
                 onDatesChange = {this.onDatesChange}
                 focusedInput= {this.state.calendarFocused}
                 onFocusChange = {this.onFocusChange}
+                showClearDates={true}
                 numberOfMonths = {1}
                 isOutsideRange= {()=> false}
                 />
@@ -50,7 +51,7 @@ class ExpenseListFilters extends React.Component{
 const mapStateToProps = (state) => {
     return {
         filters : state.filters
-    }
+    };
 };
 
 export default connect(mapStateToProps)(ExpenseListFilters);
