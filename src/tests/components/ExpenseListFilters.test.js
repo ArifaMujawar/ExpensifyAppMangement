@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import ExpenseListFilters from '../../components/ExpenseListFilters';
+import {ExpenseListFilters} from '../../components/ExpenseListFilters';
 import {filters, altFilters} from "../fixtures/filters";
 import moment from 'moment';
 
@@ -20,7 +20,7 @@ beforeEach(() => {
                     setStartDate={setStartDate}
                     sortByDate={sortByDate}
                     sortByAmount={sortByAmount}
-        />)
+        />);
 });
 
 test('should render Expense List Filters correctly',()=>{
@@ -39,7 +39,7 @@ test('should handle text change',()=>{
     wrapper.find('input').simulate('change',{
         target: {value}
     });
-    expect(wrapper).toHaveBeenLastCalledWith(value);
+    expect(setTextFilter).toHaveBeenLastCalledWith(value);
 });
 
 test('should sort by date', ()=>{
@@ -65,8 +65,8 @@ test('should handle date changes',()=>{
     const startDate = moment(0).add(4, 'years');
     const endDate = moment(0).add(8, 'years');
     wrapper.find('DateRangePicker').prop('onDatesChange')({startDate, endDate});
-    expect(wrapper).toHaveBeenLastCalledWith(startDate);
-    expect(wrapper).toHaveBeenLastCalledWith(endDate);
+    expect(setStartDate).toHaveBeenLastCalledWith(startDate);
+    expect(setEndDate).toHaveBeenLastCalledWith(endDate);
 });
 
 test('should handle date focus changes', ()=>{
