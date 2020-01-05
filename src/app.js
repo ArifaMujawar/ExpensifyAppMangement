@@ -19,7 +19,7 @@ store.dispatch(addExpense({description:'milk', amount :9000, createdAt:300}));
 
 const state = store.getState();
 const visibleExpenses = getVisibleExpenses(state.expenses, state.filters); 
-console.log(visibleExpenses);
+console.log('visibleExpenses tetsing');
 
 const jsx = (
     <Provider store = {store}>
