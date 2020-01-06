@@ -3,16 +3,17 @@ import moment from 'moment';
 import expenses from '../fixtures/expenses';
 
 
-test('should filter by text value',()=>{
+
+test('should filter by text value', () => {
     const filters = {
-        text: 'aak',
-        sortBy:'date',
-        startDate: undefined,
-        endDate: undefined
+      text: 'e',
+      sortBy: 'date',
+      startDate: undefined,
+      endDate: undefined
     };
-const result = selectExpenses(expenses, filters);
-expect(result).toEqual([expenses[2], expenses[1]]);
-});
+    const result = selectExpenses(expenses, filters);
+    expect(result).toEqual([expenses[2], expenses[1]]);
+  });
 
 test('should filter by start date', ()=>{
     const filters = {

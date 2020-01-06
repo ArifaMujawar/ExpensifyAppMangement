@@ -7,7 +7,7 @@ exports[`should render Expense list item 1`] = `
     to="/edit/1"
   >
     <h3>
-      sssaak
+      Rent
     </h3>
   </Link>
   <p>

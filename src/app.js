@@ -23,7 +23,9 @@ console.log('visibleExpenses tetsing');
 
 const jsx = (
     <Provider store = {store}>
-    <AppRouter />   
+    
+        <AppRouter />   
+    
     </Provider>
 );
 

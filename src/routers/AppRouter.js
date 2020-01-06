@@ -6,6 +6,8 @@ import EditExpensePage from '../components/EditExpensePage';
 import ExpenseDashboardPage from '../components/ExpenseDashboardPage';
 import HelpExpensePage from '../components/HelpExpensePage';
 import NotFoundPage from '../components/NotFoundPage';
+import ExpensesTotal from '../selectors/expenses-total';
+
 
 
 
@@ -14,6 +16,7 @@ const AppRouter = () => (
     <BrowserRouter>
         <div>
         <Header />
+       
         <Switch>
             <Route path = "/" component= {ExpenseDashboardPage} exact= {true} />
             <Route path = "/create" component = {AddExpensePage}/>
