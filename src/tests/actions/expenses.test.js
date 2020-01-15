@@ -1,6 +1,7 @@
 import {
     startAddExpense,
     addExpense, 
+    editExpense,
     removeExpense, 
     startEditExpense, 
     setExpenses, 
@@ -104,7 +105,7 @@ test('should add expense to database and store',(done)=>{
     }).then((snapshot)=>{
             expect(snapshot.val()).toEqual(expenseData);
             done();
-        });;
+        });
 });
 
 test('should add expense with defaults to database and store',(done)=>{
@@ -129,7 +130,7 @@ test('should add expense with defaults to database and store',(done)=>{
     }).then((snapshot)=>{
             expect(snapshot.val()).toEqual(expenseDefaults);
             done();
-        });;
+        });
 }); 
 
 test('should setup set expense action object with data', ()=>{
