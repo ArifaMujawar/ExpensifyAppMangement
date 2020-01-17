@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/configureStore';
 import {Provider} from 'react-redux';
 import {startSetExpenses} from './actions/expenses';
-import {setTextFilter} from './actions/filters';
+import {login, logout} from './actions/auth';
 import getVisibleExpenses from './selectors/expenses';
 import 'react-dates/lib/css/_datepicker.css';
 import 'normalize.css/normalize.css';
@@ -34,9 +34,11 @@ const renderApp = () => {
 };
 
 ReactDOM.render(<p>Loading....</p>, document.getElementById('app'));
-
+// uid has problem, 
 firebase.auth().onAuthStateChanged((user)=>{
     if(user){
+        console.log('uid',user.uid);
+        store.dispatch(login(user.uid));
         store.dispatch(startSetExpenses()).then(()=>{
             renderApp();
             if(history.location.pathname === '/'){
@@ -45,6 +47,7 @@ firebase.auth().onAuthStateChanged((user)=>{
             console.log('login');
         });
     }else{
+        store.dispatch(logout());
         renderApp();
        history.push('/');
        console.log('logout');
