@@ -2,7 +2,14 @@ import React, { useState, useEffect, useReducer } from 'react';
 
 const notesReducer = (state, action) => {
 switch(action.type){
-  case 'POPULATE_NOTES': return action.type;
+  case 'POPULATE_NOTES': 
+                        return action.notes;
+  case 'ADD_NOTE': 
+                        return[
+                          ...state,
+                          {title:action.title, body: action.notesBody}
+                        ] ;
+  case 'REMOVE_NOTE': return state.filter((note)=> note.title !== action.title);
   default: return state;
 }
 }
@@ -20,7 +27,9 @@ const NoteApp = () => {
     //   ...notes,
     //   { title, notesBody }
     // ])
+    dispatch({type: 'ADD_NOTE',title, notesBody});
     setTitle('')
+    setBody('')
   };
 
   useEffect(() => {
@@ -38,6 +47,7 @@ const NoteApp = () => {
 
   const removeNote = (title) => {
     //  setNotes(notes.filter((note) => note.title != title))
+    dispatch({type: 'REMOVE_NOTE',title});
   };
 
 
